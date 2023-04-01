@@ -25,9 +25,10 @@ app.use(() => { throw createHttpError(404, 'Route not found') });
 app.use(errorHandler);
 
 try {
-    dbConnection()
-    app.listen(port, () => {
-        console.log(`server listening on port ${port}`);
+    dbConnection().then(() => {
+        app.listen(port, () => {
+            console.log(`server listening on port ${port}`);
+        })
     })
 } catch (error) {
     console.log(error);
