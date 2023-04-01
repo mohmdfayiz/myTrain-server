@@ -10,6 +10,10 @@ const trainSchema = new Schema({
             type: String,
             required: true
         },
+        stationNumber:{
+            type:Number,
+            required:true
+        },
         distanceFromPrevious: {
             type: Number,
             required: true

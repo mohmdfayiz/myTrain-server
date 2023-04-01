@@ -12,7 +12,7 @@ export const createTestData = (req, res) => {
 
     for (let i = 0; i < 100; i++) {
         let stationName = faker.address.cityName()
-        let trainName = faker.vehicle.model()
+        let trainName = `${faker.vehicle.model()} Express`
         stations.push(stationName)
         trains.push(trainName)
     }
@@ -22,6 +22,7 @@ export const createTestData = (req, res) => {
         for (let i = 0; i <= 3; i++) {
             let route = {
                 stationName: stations[Math.floor(Math.random() * 100)],
+                stationNumber:i+1,
                 distanceFromPrevious: i === 0 ? 0 : faker.random.numeric(2),
                 departureTime: faker.date.recent(10),
             }
