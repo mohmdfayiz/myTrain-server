@@ -1,5 +1,5 @@
 import trainModel from '../models/trainModel.js'
-import { faker } from '@faker-js/faker';
+// import { faker } from '@faker-js/faker'
 
 // GENERATE TEST DATA USING FAKER
 export const createTestData = (req, res) => {
