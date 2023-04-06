@@ -57,6 +57,11 @@ export const searchTrain = async (req, res, next) => {
                 }
             },
             {
+                $match: {
+                    isSourceBeforeDestination: true
+                }
+            },
+            {
                 $group: {
                     _id: null,
                     trainIds: { $push: '$_id' }
@@ -75,7 +80,7 @@ export const searchTrain = async (req, res, next) => {
             return res.status(200).json(result)
         }
 
-        res.sendStatus(404)
+        return res.sendStatus(404)
 
     } catch (error) {
         console.log(error);
